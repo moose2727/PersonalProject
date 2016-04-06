@@ -15,6 +15,7 @@ namespace CoderCamps
         public GenericRepository(ApplicationDbContext db)
         {
             this._db = db;
+            // a change in the code
         }
 
         /// <summary>
