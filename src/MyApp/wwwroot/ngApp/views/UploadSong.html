@@ -1,0 +1,30 @@
+﻿<!-- song name
+    duration
+    genre
+    choose file button
+    submit button -->
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form>
+            <div class="form-group">
+                <label>Song Name</label>
+                <input type="text" class="form-control" ng-model="controller.songToCreate.name"/>
+            </div>
+            <div class="form-group">
+                <label>Lyrics</label>
+                <textarea class="form-control" ng-model="controller.songToCreate.lyrics"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Song genre</label>
+                <input type="text" class="form-control" ng-model="controller.songToCreate.genre"/>
+            </div>
+            <div class="form-group">
+                <button class="form-control btn btn-default" ng-click="controller.pickFile()">Choose file</button>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control btn btn-default" value="Submit" ng-click="controller.saveSong()"/>
+            </div>
+        </form>
+    </div>
+</div>

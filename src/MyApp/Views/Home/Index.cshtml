@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MyApp">
+<head>
+    <title>MyApp</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!--Start bootstrap navbar-->
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/profile">Profile</a>
+                            </li>
+                            <li>
+                                <a href="/studio">The Studio</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href = "/login">Log in</a>
+                            </li>
+                            <li>
+                                <a href="/signup">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+                <!--End bootstrap navbar-->
+            </div>
+        </div>
+    </div>
+    <ui-view></ui-view>
+
+    @* Add
+        -modal
+        -form control
+    *@
+
+
+    <!-- Libary Files -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+    <script src="~/lib/angular-filepicker/angular-filepicker.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.min.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/controllers/homecontroller.js"></script>
+    <script src="~/ngapp/controllers/aboutcontroller.js"></script>
+    <script src="~/ngapp/controllers/logincontroller.js"></script>
+    <script src="~/ngapp/controllers/profilecontroller.js"></script>
+    <script src="~/ngapp/controllers/signupcontroller.js"></script>
+    <script src="~/ngapp/controllers/studiocontroller.js"></script>
+    <script src="~/ngapp/controllers/profiledetailscontroller.js"></script>
+    <script src="~/ngapp/controllers/createbandcontroller.js"></script>
+    <script src="~/ngapp/controllers/uploadsongcontroller.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <h2>The Studio</h2>
+        <hr />
+        
+        <a href="/uploadSong" class="btn btn-default">Upload a song</a>
+        <br />
+        <!--Bootstrap Table-->
+        <div class="div-box">
+            <table class="table table-inverse">
+                <thead>
+                    <tr>
+                        <th>Uploaded By</th>
+                        <th>Song Title</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="song in controller.songs">
+                        <td>{{song.uploader}}</td>
+                        <td>{{song.name}}</td>
+                        <td>
+                            <a href="/songDetail/{{song.id}}">Check it out</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--end bootstrap table-->
