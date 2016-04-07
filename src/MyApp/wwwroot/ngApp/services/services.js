@@ -5,13 +5,13 @@ var MyApp;
         var SongService = (function () {
             function SongService($resource) {
                 this.$resource = $resource;
-                this.songResource = this.$resource('/api/songs/:id');
+                this.songResource = this.$resource('/api/testsong/:id');
             }
             SongService.prototype.getSongs = function () {
                 return this.songResource.query();
             };
             SongService.prototype.getSong = function (id) {
-                return this.songResource.get({ id: id }).$promise;
+                return this.songResource.get({ id: id });
             };
             SongService.prototype.saveSong = function (songToSave) {
                 return this.songResource.save(songToSave).$promise;

@@ -12,7 +12,6 @@
 
         saveSong() {
             this.songService.saveSong(this.songToCreate).then(() => {
-                debugger;
                 this.$state.go('studio');
             })
         }

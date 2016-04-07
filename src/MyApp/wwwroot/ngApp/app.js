@@ -70,13 +70,13 @@ var MyApp;
             templateUrl: 'ngApp/views/songDetail.html',
             controller: MyApp.Controllers.SongDetailsController,
             controllerAs: 'controller'
+        })
+            .state('notFound', {
+            url: '/notFound',
+            templateUrl: '/ngApp/views/notFound.html'
         });
-        //.state('notFound', {
-        //    url: '/notFound',
-        //    templateUrl: '/ngApp/views/notFound.html'
-        //});
         // Handle request for non-existent route
-        //$urlRouterProvider.otherwise('/notFound');
+        $urlRouterProvider.otherwise('/notFound');
         // Enable HTML5 navigation
         $locationProvider.html5Mode(true);
     });

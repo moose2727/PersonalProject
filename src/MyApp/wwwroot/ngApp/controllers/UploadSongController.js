@@ -12,7 +12,6 @@ var MyApp;
             UploadSongController.prototype.saveSong = function () {
                 var _this = this;
                 this.songService.saveSong(this.songToCreate).then(function () {
-                    debugger;
                     _this.$state.go('studio');
                 });
             };

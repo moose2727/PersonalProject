@@ -4,13 +4,14 @@ namespace MyApp.Services {
         public songResource;
 
         constructor(private $resource: angular.resource.IResourceService) {
-            this.songResource = this.$resource('/api/songs/:id');
+            this.songResource = this.$resource('/api/testsong/:id');
         }
         public getSongs() {
             return this.songResource.query();
         }
         public getSong(id) {
-            return this.songResource.get({ id: id }).$promise;
+
+            return this.songResource.get({ id: id });
         }
         public saveSong(songToSave) {
             return this.songResource.save(songToSave).$promise;
