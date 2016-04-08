@@ -11,7 +11,7 @@ namespace MyApp.Services {
         }
         public getSong(id) {
 
-            return this.songResource.get({ id: id });
+            return this.songResource.get({ id: id }).$promise;
         }
         public saveSong(songToSave) {
             return this.songResource.save(songToSave).$promise;
@@ -19,5 +19,16 @@ namespace MyApp.Services {
     }
     angular.module("MyApp").service("songService", SongService);
 
-    
+    export class SongCommentService {
+        public songCommentResource;
+        constructor(private $resource: ng.resource.IResourceService) {
+            this.songCommentResource = this.$resource('/api/songcomment/:id');
+        }
+
+        public saveComment(commentToSave) {
+            return this.songCommentResource.save(commentToSave).$promise;
+        }
+    }
+
+    angular.module("MyApp").service("songCommentService", SongCommentService);
 }

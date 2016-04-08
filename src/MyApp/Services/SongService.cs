@@ -31,6 +31,15 @@ namespace MyApp.Services
             {
                  _repo.Add(songToSave);
             }
+            else
+            {
+                var original = _repo.Query<Song>().Where(s => s.Id == songToSave.Id).FirstOrDefault();
+                original.Name = songToSave.Name;
+                original.Url = songToSave.Url;
+                original.Lyrics = songToSave.Lyrics;
+                original.Genre = songToSave.Genre;
+                _repo.SaveChanges();
+            }
         }
 
     }

@@ -13,6 +13,7 @@
                         <th>Uploaded By</th>
                         <th>Song Title</th>
                         <th>Details</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,9 @@
                         <td>{{song.name}}</td>
                         <td>
                             <a href="/songDetail/{{song.id}}">Check it out</a>
+                        </td>
+                        <td>
+                            <a role="button" class="btn btn-default" href="/editSong/{{song.id}}">Edit</a>
                         </td>
                     </tr>
                 </tbody>

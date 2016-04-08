@@ -23,7 +23,6 @@
         }
 
         private fileUploaded(file) {
-            debugger;
             this.file = file;
             this.$scope.$apply();
             this.songToCreate.url = file.url;

@@ -4,24 +4,38 @@
             <div class="row text-center">
                 <h1>{{controller.song.name}}</h1>
                 <!-- player here? -->
+                <script>
+                    audiojs.events.ready(function () {
+                        var as = audiojs.createAll();
+                    });
+                </script>
+                <div>
+                    <audio ng-src="{{controller.song.url}}" preload="none"></audio>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-5">
                     <h4>Uploaded by: {{controller.song.uploader}}</h4>
+                    <br />
                     <!-- comments go here -->
-                    <form action="/" method="post">
-                        <!-- write a comment here -->
+                    <form ng-submit="controller.saveComment()">
+                        <div class="form-group">
+                            <label>Leave a comment:</label>
+                            <textarea rows="5" class="form-control" ng-model="controller.comment.message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-block btn-default" value="Submit" />
+                        </div>
                     </form>
                     <table>
                         <tr ng-repeat="comment in controller.song.comments">
-                            <td>{{comment.id}} </td>
                             <td>{{comment.message}}</td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-md-5 col-md-offset-1">
                     <h4>Lyrics:</h4>
-                    <h1>{{controller.song.lyrics}}</h1>
+                    <textarea contenteditable="false" class="form-control">{{controller.song.lyrics}}</textarea>
                 </div>
             </div>
         </div>

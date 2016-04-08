@@ -1,6 +1,6 @@
 var MyApp;
 (function (MyApp) {
-    angular.module('MyApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, filepickerProvider) {
+    angular.module('MyApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker', 'ngSanitize']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, filepickerProvider) {
         //filepicker api key
         filepickerProvider.setKey('Ay0qe4wR6efe0Ua2XZC5wz');
         // Define routes
@@ -69,6 +69,12 @@ var MyApp;
             url: '/songDetail/:id',
             templateUrl: 'ngApp/views/songDetail.html',
             controller: MyApp.Controllers.SongDetailsController,
+            controllerAs: 'controller'
+        })
+            .state('editSong', {
+            url: '/editSong/:id',
+            templateUrl: 'ngApp/views/EditSong.html',
+            controller: MyApp.Controllers.EditSongController,
             controllerAs: 'controller'
         })
             .state('notFound', {

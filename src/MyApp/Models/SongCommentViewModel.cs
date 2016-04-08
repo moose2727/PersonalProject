@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MyApp.Models
 {
-    public class SongComment
+    public class SongCommentViewModel
     {
-        public int Id { get; set; }
-        public string Message { get; set; }
         public int SongId { get; set; }
+        public string Message { get; set; }
+
     }
 }

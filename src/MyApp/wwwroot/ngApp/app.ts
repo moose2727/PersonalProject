@@ -1,6 +1,6 @@
 namespace MyApp {
 
-    angular.module('MyApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker']).config((
+    angular.module('MyApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker', 'ngSanitize']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider,
@@ -75,6 +75,12 @@ namespace MyApp {
                 url: '/songDetail/:id',
                 templateUrl: 'ngApp/views/songDetail.html',
                 controller: MyApp.Controllers.SongDetailsController,
+                controllerAs: 'controller'
+            })
+            .state('editSong', {
+                url: '/editSong/:id',
+                templateUrl: 'ngApp/views/EditSong.html',
+                controller: MyApp.Controllers.EditSongController,
                 controllerAs: 'controller'
             })
             .state('notFound', {

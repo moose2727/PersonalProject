@@ -43,6 +43,7 @@ namespace MyApp
             // Add framework services.
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<ISongService, SongService>();
+            services.AddScoped<ISongCommentService, SongCommentService>();
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<ApplicationDbContext>(options =>

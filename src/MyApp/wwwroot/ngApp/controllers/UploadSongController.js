@@ -21,7 +21,6 @@ var MyApp;
                 }, this.fileUploaded.bind(this));
             };
             UploadSongController.prototype.fileUploaded = function (file) {
-                debugger;
                 this.file = file;
                 this.$scope.$apply();
                 this.songToCreate.url = file.url;
