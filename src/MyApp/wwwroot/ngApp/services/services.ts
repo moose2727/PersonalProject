@@ -16,6 +16,9 @@ namespace MyApp.Services {
         public saveSong(songToSave) {
             return this.songResource.save(songToSave).$promise;
         }
+        public deleteSong(id: number) {
+            return this.songResource.remove({ id: id }).$promise;
+        }
     }
     angular.module("MyApp").service("songService", SongService);
 

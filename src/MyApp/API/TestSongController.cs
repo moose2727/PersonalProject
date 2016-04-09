@@ -52,6 +52,7 @@ namespace MyApp.API
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _repo.deleteSong(id);
         }
     }
 }

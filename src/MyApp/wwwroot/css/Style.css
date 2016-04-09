@@ -2,7 +2,8 @@
     background-color: #262626;
     color: #8c8c8c;
     background-image: url(http://static1.squarespace.com/static/53be0bebe4b0c29b7e2a5d99/t/545010fee4b0f7755a4417d1/1414533375689/concert-smoke-stage-audience-applause-the-darkness-the-crowd-resized.jpg?format=1500w) !important;
-    background-size:cover !important;
+    background-size: cover !important;
+    font-family: 'Bitter', serif;
 }
 
 .carousel-img {
@@ -13,25 +14,24 @@
 .item {
     width: 100%;
     height: 500px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #profile-img {
     width: 200px;
     height: 200px;
-
 }
 
 #info {
     display: inline-block;
 }
 
-.indent{
+.indent {
     margin-left: 20px;
 }
 
 .div-box {
-    background-color:#1a1a1a !important;
+    background-color: #1a1a1a !important;
     padding: 10px;
     border: 2px solid #8c8c8c;
     border-radius: 2px;
@@ -40,22 +40,47 @@
 }
 
 #upload-form {
-    margin-left: 20px
-
+    margin-left: 20px;
 }
 
-.input-box{
+.input-box {
     width: 100%;
     height: 150px;
     color: black;
     border-radius: 4px;
 }
 
-.check{
+.check {
     margin-left: 3px;
     margin-right: 3px;
 }
 
-.profile-submit{
-    float:right;
+.profile-submit {
+    float: right;
+}
+
+textarea {
+    resize: none;
+}
+
+#audio-player {
+    text-align: center;
+    width: 29%;
+    display: block;
+    margin-left: 40%;
+}
+
+#lyrics {
+    height: 50%;
+}
+
+.comment {
+    margin: 10px;
+    width: 100%;
+}
+
+.darkTextArea {
+   
+    background-color: #404040 !important;
+    color: #bfbfbf !important;
 }

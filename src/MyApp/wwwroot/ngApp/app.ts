@@ -83,6 +83,12 @@ namespace MyApp {
                 controller: MyApp.Controllers.EditSongController,
                 controllerAs: 'controller'
             })
+            .state('deleteSong', {
+                url: '/deleteSong/:id',
+                templateUrl: 'ngApp/views/DeleteSong.html',
+                controller: MyApp.Controllers.DeleteSongController,
+                controllerAs: 'controller'
+            })
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'

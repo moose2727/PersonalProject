@@ -1,6 +1,6 @@
-﻿namespace MyApp.Controllers {
+﻿//namespace MyApp.Controllers {
 
-    export class LoginController {
+//    export class LoginController {
 
-    }
-}
+//    }
+//}

@@ -16,6 +16,9 @@ var MyApp;
             SongService.prototype.saveSong = function (songToSave) {
                 return this.songResource.save(songToSave).$promise;
             };
+            SongService.prototype.deleteSong = function (id) {
+                return this.songResource.remove({ id: id }).$promise;
+            };
             return SongService;
         }());
         Services.SongService = SongService;

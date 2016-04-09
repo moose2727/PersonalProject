@@ -42,5 +42,11 @@ namespace MyApp.Services
             }
         }
 
+        public void deleteSong(int id)
+        {
+            var song = _repo.Query<Song>().Where(s => s.Id == id).FirstOrDefault();
+            _repo.Delete<Song>(song);
+        }
+
     }
 }
