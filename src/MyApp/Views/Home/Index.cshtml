@@ -17,24 +17,27 @@
             <div class="col-md-12">
                 <!--Start bootstrap navbar-->
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="AccountController as controller">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="/">Home</a>
                             </li>
                             <li>
-                                <a href="/profile">Profile</a>
+                                <a href="/profile" ng-show="controller.isLoggedIn()">Profile</a>
                             </li>
                             <li>
                                 <a href="/studio">The Studio</a>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right" >
                             <li>
-                                <a href = "/login">Log in</a>
+                                <a href = "/login" ng-hide="controller.isLoggedIn()">Log in</a>
                             </li>
                             <li>
-                                <a href="/signup">Sign Up</a>
+                                <a href="/signup" ng-hide="controller.isLoggedIn()">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="/logout" ng-hide="!controller.isLoggedIn()">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -69,7 +72,6 @@
     <script src="~/ngapp/controllers/aboutcontroller.js"></script>
     <script src="~/ngapp/controllers/logincontroller.js"></script>
     <script src="~/ngapp/controllers/profilecontroller.js"></script>
-    <script src="~/ngapp/controllers/signupcontroller.js"></script>
     <script src="~/ngapp/controllers/studiocontroller.js"></script>
     <script src="~/ngapp/controllers/profiledetailscontroller.js"></script>
     <script src="~/ngapp/controllers/createbandcontroller.js"></script>
@@ -77,6 +79,8 @@
     <script src="~/ngapp/controllers/songdetailscontroller.js"></script>
     <script src="~/ngapp/controllers/editsongcontroller.js"></script>
     <script src="~/ngapp/controllers/deletesongcontroller.js"></script>
+    <script src="~/ngapp/controllers/accountcontroller.js"></script>
     <script src="~/ngapp/services/services.js"></script>
+    <script src="~/ngapp/services/accountservice.js"></script>
 </body>
 </html>

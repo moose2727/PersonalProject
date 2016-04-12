@@ -51,10 +51,12 @@
 
 
     export class RegisterController {
+        
         public registerUser;
         public validationMessages;
 
         public register() {
+            debugger;
             this.accountService.register(this.registerUser).then(() => {
                 this.$location.path('/');
             }).catch((results) => {
@@ -62,7 +64,8 @@
             });
         }
 
-        constructor(private accountService: MyApp.Services.AccountService, private $location: ng.ILocationService) { }
+        constructor(private accountService: MyApp.Services.AccountService, private $location: ng.ILocationService) {
+            }
     }
 
 

@@ -11,6 +11,7 @@ namespace MyApp.Models
     {
         public DbSet<Song> Songs { get; set; }
         public DbSet<SongComment> SongComments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

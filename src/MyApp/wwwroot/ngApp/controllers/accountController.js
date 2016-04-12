@@ -54,6 +54,7 @@ var MyApp;
             }
             RegisterController.prototype.register = function () {
                 var _this = this;
+                debugger;
                 this.accountService.register(this.registerUser).then(function () {
                     _this.$location.path('/');
                 }).catch(function (results) {

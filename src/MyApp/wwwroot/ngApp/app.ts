@@ -44,7 +44,7 @@ namespace MyApp {
             .state('signup', {
                 url: '/signup',
                 templateUrl: '/ngApp/views/signup.html',
-                controller: MyApp.Controllers.SignupController,
+                controller: MyApp.Controllers.RegisterController,
                 controllerAs: 'controller'
             })
             .state('profileDetails', {
@@ -89,6 +89,12 @@ namespace MyApp {
                 controller: MyApp.Controllers.DeleteSongController,
                 controllerAs: 'controller'
             })
+            .state('logout', {
+                url: '/logout',
+                templateUrl: 'ngApp/views/logout.html',
+                controller: MyApp.Controllers.AccountController,
+                controllerAs: 'controller'
+            })
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
@@ -100,6 +106,31 @@ namespace MyApp {
 
         // Enable HTML5 navigation
         $locationProvider.html5Mode(true);
+    });
+
+
+    angular.module('MyApp').factory('authInterceptor', (
+        $q: ng.IQService,
+        $window: ng.IWindowService,
+        $location: ng.ILocationService
+    ) =>
+        ({
+            request: function (config) {
+                config.headers = config.headers || {};
+                config.headers['X-Requested-With'] = 'XMLHttpRequest';
+                return config;
+            },
+            responseError: function (rejection) {
+                if (rejection.status === 401 || rejection.status === 403) {
+                    $location.path('/login');
+                }
+                return $q.reject(rejection);
+            }
+        })
+    );
+
+    angular.module('MyApp').config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
     });
 
 }

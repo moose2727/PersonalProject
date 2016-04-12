@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using MyApp.Models;
+using Microsoft.AspNet.Identity;
+using MyApp.Services;
+using MyApp.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,14 +17,18 @@ namespace MyApp.API
     public class ProfilesController : Controller
     {
         //fake database
-        static List<Profile> _profiles = new List<Profile>
+        //static List<Profile> _profiles = new List<Profile>
+        //{
+        //    new Profile {Id = 1, Name= "Jason deNevers", Age=24, Location="Lake Stevens, WA" },
+        //    new Profile {Id = 2, Name= "Scott Stewart", Age=34, Location="Lake Stevens, WA" },
+        //    new Profile {Id = 3, Name= "Orion Weldon", Age=26, Location="Snohomish, WA" },
+        //    new Profile {Id = 4, Name= "Mike Larson", Age=30, Location="Arlington, WA" },
+        //};
+        ProfileViewService _profiles;
+        public ProfilesController(ProfileViewService Service)
         {
-            new Profile {Id = 1, Name= "Jason deNevers", Age=24, Location="Lake Stevens, WA" },
-            new Profile {Id = 2, Name= "Scott Stewart", Age=34, Location="Lake Stevens, WA" },
-            new Profile {Id = 3, Name= "Orion Weldon", Age=26, Location="Snohomish, WA" },
-            new Profile {Id = 4, Name= "Mike Larson", Age=30, Location="Arlington, WA" },
-        };
-
+            this._profiles = Service;
+        }
         
         // GET: api/values
         [HttpGet]
@@ -31,9 +39,10 @@ namespace MyApp.API
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Profile Get(int id)
+        public ProfileViewModel Get(int id)
         {
-            var profile = _profiles.Find(p => p.Id == id);
+
+            var profile = _profiles.GetUserInfo(id);
             return profile;
         }
 

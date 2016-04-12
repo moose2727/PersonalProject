@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.Entity;
+using Microsoft.AspNet.Identity;
+using System.Security.Claims;
 
 namespace MyApp.Models
 {
     public class SampleData
     {
-        public static void Initialize(IServiceProvider sp)
+        public async static void Initialize(IServiceProvider sp)
         {
             var db = sp.GetService<ApplicationDbContext>();
 
@@ -70,6 +73,46 @@ namespace MyApp.Models
                 };
                 db.Songs.AddRange(songs);
                 db.SaveChanges();
+            }
+
+            var userManager = sp.GetService<UserManager<ApplicationUser>>();
+            db.Database.Migrate();
+
+
+            var stephen = await userManager.FindByNameAsync("Moose@Hotmail.com");
+            if (stephen == null)
+            {
+                // create user
+                stephen = new ApplicationUser
+                {
+                    UserName = "Moose@Hotmail.com",
+                    Email = "Moose@Hotmail.com",
+                    FirstName = "Jason",
+                    LastName = "deNevers",
+                    Age = 24,
+                    Image = "dkgnebgikopmn"
+
+                };
+                await userManager.CreateAsync(stephen, "Secret123!");
+
+                // add claims
+                await userManager.AddClaimAsync(stephen, new Claim("IsAdmin", "true"));
+            }
+
+            // Ensure Mike (not IsAdmin)
+            var mike = await userManager.FindByNameAsync("Jason@whatever.com");
+            if (mike == null)
+            {
+                // create user
+                mike = new ApplicationUser
+                {
+                    UserName = "Jason@whatever.com",
+                    Email = "Jason@whatever.com",
+                    FirstName = "Dan",
+                    LastName = "deNevers",
+                    Age = 34
+                };
+                await userManager.CreateAsync(mike, "Secret123!");
             }
         }
     }
